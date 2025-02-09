@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog List</title>
+    <style>
+        table { width: 100%; border-collapse: collapse; margin-top: 10px; }
+        th, td { border: 1px solid black; padding: 8px; text-align: left; }
+        th { cursor: pointer; background-color: #f2f2f2; }
+    </style>
+</head>
+<body>
+    <h2>Blog Users</h2>
+    <input type="text" id="search" placeholder="Search by name..." onkeyup="filterUsers()">
+    <button onclick="sortUsers()">Sort by Name</button>
+    <p id="loading">Loading...</p>
+    <table id="userTable">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Email</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+
+    <script>
+        let users = [];
+
+        async function fetchUsers() {
+            let response = await fetch("https://reqres.in/api/users");
+            let data = await response.json();
+            users = data.data; 
+            displayUsers(users);
+            document.getElementById("loading").style.display = "none";
+        }
+
+        function displayUsers(userList) {
+            let tableBody = document.querySelector("#userTable tbody");
+            tableBody.innerHTML = "";
+            userList.forEach(user => {
+                let row = `<tr>
+                    <td>${user.id}</td>
+                    <td>${user.first_name} ${user.last_name}</td>
+                    <td>${user.email}</td>
+                </tr>`;
+                tableBody.innerHTML += row;
+            });
+        }
+
+        function sortUsers() {
+            users.sort((a, b) => (a.first_name > b.first_name ? 1 : -1));
+            displayUsers(users);
+        }
+
+        function filterUsers() {
+            let searchText = document.getElementById("search").value.toLowerCase();
+            let filteredUsers = users.filter(user => 
+                `${user.first_name} ${user.last_name}`.toLowerCase().includes(searchText)
+            );
+            displayUsers(filteredUsers);
+        }
+
+        fetchUsers();
+    </script>
+</body>
+</html>
