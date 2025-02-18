@@ -5,11 +5,8 @@
 //Ans : It behaves normally
 // Yes statements execute after the loop
 //return depends on the value you want to return
-//Yes we can return from inside the if statement..it will exits the function and blow that do not work
+//Yes we can return from inside the if statement..it will exits the function and code below the 'return' will not work. 
 
-
-
-// console.log("Lets run the file");
 
 //While loop**************
 // let limit=10;
@@ -25,27 +22,31 @@
 
 
 
-//For loop **************
+//Switch case **************
 
 // let age = 25;
-// function ageAccess(age) {
+function ageAccess(age) {
+    if(typeof(age)!== typeof(3)){
+        console.log(typeof age)
+        console.log('The data type is not integer..')
+        return
+    } 
+    switch (true) {
+        case (age <= 18 && age >= 13):
+            console.log('teen');
+            return;
+        case (age <= 12 && age>0):
+            console.log('child');
+            return;
+        case (age > 18):
+            console.log('adult');
+            return;
+        default:
+            console.log("wrong input")
+    }
 
-//     switch (true) {
-//         case (age <= 18 && age >= 13):
-//             console.log('teen');
-//             return;
-//         case (age <= 12):
-//             console.log('child');
-//             return;
-//         case (age > 18):
-//             console.log('adult');
-//             return;
-//         default:
-//             console.log("wrong input")
-//     }
-
-// }
-// ageAccess(age);
+}
+ageAccess(-1);
 
 
 

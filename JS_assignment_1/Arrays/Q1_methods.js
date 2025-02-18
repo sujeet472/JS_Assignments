@@ -58,9 +58,10 @@ let arrSize = arr.length
 // console.log('arry size is :',arrSize)
 
 function filterByName(inclusion) {
+    const inc = inclusion.trim();
     for (let i = 0; i < arrSize; i++) {
         firstName = arr[i].first_name;
-        if (firstName.includes(inclusion)) {
+        if (firstName.includes(inc)) {
             ans.push(arr[i]);
         }
         else {
@@ -69,17 +70,20 @@ function filterByName(inclusion) {
     }
 }
 
-filterByName('ni');
+filterByName(' Nick');
 // console.log(ans)
 
 
 //MAP FUNCTION***************************
-emailArray = [];
-arr.map(getEmails)
+let emailArray = [];
+arr.map((getEmails) => (
+    emailArray.push(getEmails.email)
+))
 
-function getEmails(item) {
-    emailArray.push(item.email);
-}
+// function getEmails(item) {
+//     emailArray.push(item.email);
+// }
+
 // console.log(emailArray);
 
 
@@ -113,11 +117,11 @@ arr.sort((a, b) => {
 
 
 
-//FING OBJECT WITH GIVEN ID
+//FIND OBJECT WITH GIVEN ID
 
-function getById(num) {
+function getById(id) {
     for (let i = 0; i < arrSize; i++) {
-        if (arr[i].id == num) {
+        if (arr[i].id == id) {
             console.log(arr[i]);
             return
         }
@@ -126,3 +130,5 @@ function getById(num) {
 }
 
 // getById(9);
+// Another way to find any object in the array
+console.log(arr.find(el=> el.id=9))

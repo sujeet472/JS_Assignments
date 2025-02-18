@@ -8,9 +8,9 @@
 let a = 10;
 console.log(a);
 // a++;
-console.log("after performing i++",a++);
+console.log("after performing i++",a++); //output : 10
 
 //eg of pre increment
 let b=10;
-console.log("preincrement value: ",++b);
+console.log("preincrement value: ",++b); //output : 11
 

@@ -2,11 +2,17 @@
 
 
 
-function filterObj(obj) {
-    return Object.fromEntries(
-        Object.entries(obj).filter(([key, value]) =>
-            typeof value !== 'object' || value === null
-        )
+// function filterObj(obj) {
+//     return Object.fromEntries(
+//         Object.entries(obj).filter(([key, value]) =>
+//             typeof value !== 'object' || value === null
+//         )
+//     );
+// }
+
+function filterKeys(obj) {
+    return Object.keys(obj).filter(key => 
+        typeof obj[key] !== 'object' || obj[key] === null
     );
 }
 
@@ -18,5 +24,5 @@ let obj = {
     d: "Dog"
 };
 
-console.log(filterObj(obj));
+console.log(filterKeys(obj));
 

@@ -10,14 +10,14 @@ let e = null;
 let f = undefined;
 let g;
 
-console.log("a output : ",typeof(a))
-console.log("b output : ",typeof(b))
-console.log("c output : ",typeof(c))
-console.log("d output : ",typeof(d))
-console.log("e output : ",typeof(e))
-console.log("f output : ",typeof(f))
-console.log("g output : ",typeof(g))
-console.log("Is c an array? : ",Array.isArray(c))
+console.log("a output : ",typeof(a)) //a output :  number
+console.log("b output : ",typeof(b)) //b output :  number
+console.log("c output : ",typeof(c)) // c output :  object
+console.log("d output : ",typeof(d)) // d output :  object
+console.log("e output : ",typeof(e)) // e output :  object
+console.log("f output : ",typeof(f)) // f output :  undefined
+console.log("g output : ",typeof(g)) // g output :  undefined
+console.log("Is c an array? : ",Array.isArray(c)) //Is c an array? :  true
 
 
 

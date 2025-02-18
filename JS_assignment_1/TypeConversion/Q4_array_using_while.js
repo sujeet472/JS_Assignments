@@ -1,11 +1,13 @@
 // 4. Accomplish the same using a while loop. 
 
-arraySize =25;
+let arraySize =25;
 let arr =[];
+let counter = 1;
 
-while(arraySize>0){
-    arr.push(26-arraySize)
-    arraySize --;
+
+while(counter<=arraySize){
+    arr.push(counter)
+    counter ++;
 }
 
 arr.forEach(element => {

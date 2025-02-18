@@ -4,12 +4,24 @@
 
 let age=25;
 
-if(age<=12){
-    console.log("child");
+function printCategory(age){
+    if(typeof age !== typeof(3)) {
+        console.log("Wrong data type");
+        return
+    } 
+
+    if(age<=12 && age>0){
+        console.log("child");
+    }
+    else if (age <=18 & age>=13){
+        console.log("teen");
+    }
+    else if (age>18){
+        console.log("adult");
+    }
+    else{
+        console.log("Wrong input");
+    }
 }
-else if (age <=18 & age>=13){
-    console.log("teen");
-}
-else if (age>18){
-    console.log("adult");
-}
+
+printCategory(null)

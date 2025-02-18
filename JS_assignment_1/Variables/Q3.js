@@ -8,7 +8,7 @@ a[0]=10;
 b[0]=50;
 // console.log(b);
 
-//Impression : I did not expect the array value to get changes in spite of declaring as a const
+//Impression : I did not expect the array value to get changes in spite of declaring as a const.
 
 let c = {tree:"mango", fruit: "kiwi"};
 c.tree = "pineapple";
